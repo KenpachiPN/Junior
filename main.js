@@ -1,33 +1,51 @@
 
-let cantidad = prompt("cuantos alumnos son");
-let alumTotales = [];
-
-for (i = 0; i < cantidad; i++) {
-	alumTotales[i] = [prompt("Nombre del alumno " + (i + 1)),0];
-
-}
-
-const tomarAsistencia = (nombre, p)=> {
-	let presencia = prompt(nombre);
-	if (presencia == "p" || presencia == "P") {
-		alumTotales[p][1]++
-	};
-}
-
-for (i = 0; i < 30; i++) {
-	for(alumno in alumTotales) {
-		tomarAsistencia(alumTotales[alumno][0], alumno)
-	};
-}
-
-for(alumno in alumTotales) {
-	let result = `${alumTotales[alumno[0]]}: <br>
-	_____________Presentes: <b> ${alumTotales[alumno][1]}: </b> <br>
-	_____________Ausencia: <b> ${30 - parseInt(alumTotales[alumno][1])} </b>
-	`;
-	if (30 - alumTotales[alumno][1] > 18) {
-		result += "<b style = color 'red'> Reprobado por inasistencias </b> <br> <br>"
-	} else {
-		result += "<br><br>";
-	}document.write(result);
+const sumar = (num1, num2) => {
+	return parseInt(num1) + parseInt(num2)
 };
+
+const restar = (num1, num2) => {
+	return parseInt(num1) - parseInt(num2)
+};
+
+const multiplicar = (num1, num2) => {
+	return parseInt(num1) * parseInt(num2)
+};
+
+const dividir = (num1, num2) => {
+	return parseInt(num1) / parseInt(num2)
+};
+
+alert("¿Qué operación matemática básica deseas realizar?");
+let operacion = prompt("1: sumar, 2: restar, 3: multiplicar, 4: dividir");
+
+if(operacion == 1) {
+	let numero1 = prompt("Ingrese el primer número");
+	let numero2 = prompt("Ingrese el segundo número");
+	let resul = sumar(numero1,numero2);
+	alert("El resultado de sumar " + numero1 + " y " + numero2 + " es de " + resul);
+}
+
+else if(operacion == 2) {
+	let numero1 = prompt("Ingrese el primer número");
+	let numero2 = prompt("Ingrese el segundo número");
+	let resul = restar(numero1,numero2);
+	alert("El resultado de restar " + numero1 + " y " + numero2 + " es de " + resul);
+}
+
+else if(operacion == 3) {
+	let numero1 = prompt("Ingrese el primer número");
+	let numero2 = prompt("Ingrese el segundo número");
+	let resul = multiplicar(numero1,numero2);
+	parseFloat(resul);
+	alert("El resultado de multiplicar " + numero1 + " y " + numero2 + " es de " + resul);
+}
+
+else if(operacion == 4) {
+	let numero1 = prompt("Ingrese el primer número");
+	let numero2 = prompt("Ingrese el segundo número");
+	let resul = dividir(numero1,numero2);
+	parseFloat(resul);
+	alert("El resultado de dividir " + numero1 + " y " + numero2 + " es de " + resul);
+} else {
+	alert("No se encontró tu operación");
+}
