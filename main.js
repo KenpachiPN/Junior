@@ -10,12 +10,19 @@ class animal {
 	verInformacion = () => {
 		document.write(this.informacion + "<br>") 
 	};
+	ladrar() {
+		if (this.especie == "perro") {
+			document.write("¡Waw! <br>");
+		} else {
+			document.write("No puede ladrar, ya que es un " + this.especie + "<br> ");
+		}
+	}
 }
 // const siempre para objetos
-const perro = new animal("canino", 5, "marrón");
+const perro = new animal("perro", 5, "marrón");
 const gato = new animal("felino", 2, "negro");
 const pajaro = new animal("loro", 1, "verde");
 
-perro.verInformacion();
-gato.verInformacion();
-pajaro.verInformacion();
+perro.ladrar();
+gato.ladrar();
+pajaro.ladrar();
