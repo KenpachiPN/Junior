@@ -17,13 +17,12 @@ class Perro extends Animal {
 		super(especie, edad, color);
 		this.raza = raza;
 	};
-	ladrar() {
+	static ladrar() {
 		alert("¡WAW!");
 	}
 }
 // const siempre para objetos
-const perro = new Perro("perro", 5, "marrón", "rotwailer");
 const gato = new Animal("felino", 2, "negro");
 const pajaro = new Animal("loro", 1, "verde");
 
-perro.ladrar();
+Perro.ladrar();
