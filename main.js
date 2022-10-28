@@ -15,14 +15,20 @@ class Animal {
 class Perro extends Animal {
 	constructor(especie, edad, color, raza) {
 		super(especie, edad, color);
-		this.raza = raza;
+		this.raza = null;
 	};
-	static ladrar() {
-		alert("¡WAW!");
+	set setRaza(newName) { 
+		this.raza = newName; 
 	}
+	get getRaza (){
+		return this.raza;
+	}
+
 }
 // const siempre para objetos
+const perro = new Perro("perro", 5, "marrón", "rotwailer");
 const gato = new Animal("felino", 2, "negro");
 const pajaro = new Animal("loro", 1, "verde");
 
-Perro.ladrar();
+perro.setRaza = "Pedro";
+document.write(perro.getRaza);
