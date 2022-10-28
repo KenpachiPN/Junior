@@ -44,6 +44,8 @@ class Celular {
 	}
 }
 
+
+
 celular1 = new Celular ("rojo", "150g", "5'", "full HD", "1GB");
 celular2 = new Celular ("negro", "155g", "5.4'", "HD", "2GB");
 celular3 = new Celular ("blanco", "146g", "5.9'", "full HD", "2GB");
