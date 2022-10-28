@@ -1,34 +1,61 @@
 
-class Animal {
-	constructor(especie, edad, color) {
-		this.especie = especie; // this es el objeto - // especie parámetro - el objeto "this" tendrá una carácteristica
-		this.edad = edad;
+class Celular {
+	constructor (color, peso, tamaño, rdc, ram) {
 		this.color = color;
-		this.informacion = `Soy un ${this.especie}, tengo ${this.edad}, 
-		años, soy de color ${this.color}, y mi raza es ${this.raza}`;
+		this.peso = peso;
+		this.tamaño = tamaño;
+		this.rdc = rdc;
+		this.ram = ram;
+		this.encendido = false;
 	}
-	verInformacion = () => {
-		document.write(this.informacion + "<br>") 
-	};
-} 
-
-class Perro extends Animal {
-	constructor(especie, edad, color, raza) {
-		super(especie, edad, color);
-		this.raza = null;
-	};
-	set setRaza(newName) { 
-		this.raza = newName; 
-	}
-	get getRaza (){
-		return this.raza;
+	presionarBotonEncendido() {
+		if(this.encendido == false) {
+			alert("Celular prendido");
+			this.encendido = true;
+		} else {
+			alert("Celular apagado");
+			this.encendido = false;
+		}
 	}
 
+	reiniciar() {
+		if(this.encendido == true) {
+			alert("Reiniciando celular");
+		} else {
+			alert("El celular está apagado");
+		}
+	}
+
+	tomarFoto() {
+		alert(`Foto tomada en una resolución de: ${this.rdc}`);
+	}
+
+	grabarVideo() {
+		alert(`Grabando vídeo con una resolución de: ${this.rdc}`);
+	}
+	mobileInfo() {
+		return `
+		Color: <b>${this.color} </b><br>
+		Peso: <b>${this.peso} </b><br>
+		Tamaño: <b>${this.tamaño} </b><br>
+		Resolución de Cámara: <b>${this.rdc} </b><br>
+		Memoria Ram: <b>${this.ram} </b><br>
+		`
+	}
 }
-// const siempre para objetos
-const perro = new Perro("perro", 5, "marrón", "rotwailer");
-const gato = new Animal("felino", 2, "negro");
-const pajaro = new Animal("loro", 1, "verde");
 
-perro.setRaza = "Pedro";
-document.write(perro.getRaza);
+celular1 = new Celular ("rojo", "150g", "5'", "full HD", "1GB");
+celular2 = new Celular ("negro", "155g", "5.4'", "HD", "2GB");
+celular3 = new Celular ("blanco", "146g", "5.9'", "full HD", "2GB");
+
+// celular1.presionarBotonEncendido();
+// celular1.tomarFoto();
+// celular1.grabarVideo();
+// celular1.reiniciar();
+// celular1.presionarBotonEncendido();
+
+document.write(`
+	${celular1.mobileInfo()} <br>
+	${celular2.mobileInfo()} <br>
+	${celular3.mobileInfo()}
+	`);
